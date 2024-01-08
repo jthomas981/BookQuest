@@ -1,0 +1,30 @@
+{% extends 'base_layout.html' %}
+
+{% block head %}
+  {{ form.media.css }}
+  <style>
+    input, select {width: 100%}
+  </style>
+{% endblock %}
+
+{% block content %}
+  {% load crispy_forms_tags %}
+
+  <div class="container mt-5">
+    <h2>Create a quote.</h2>
+    <p class="text-danger fw-bold">
+      (Note: You don't need to place quotes in the content area! The system encases your submission with quotes automatically.)
+    </p>
+
+    <form method="post" action="{% url 'create_quote' %}" class="mt-3">
+      {% csrf_token %}
+      {{ form|crispy }}
+      <p><a href="{% url 'create_book' %}" class="text-muted">Can't find the book? Create one.</a></p>
+      <p><a href="{% url 'create_author' %}" class="text-muted">Can't find the author? Create one.</a></p>
+      <button type="submit" class="btn btn-primary">Create</button>
+    </form>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  {{ form.media.js }}
+{% endblock %}

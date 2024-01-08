@@ -1,0 +1,73 @@
+{% extends 'base_layout.html' %}
+
+{% block content %}
+    <div class="container mt-4">
+        <h2 class="text-center">Start Quiz</h2>
+        <p class="text-center">Select how long you would like the quiz to be.</p>
+        <style>
+            .duration-radio {
+                display: none;
+            }
+
+            .form-check-label {
+                display: block;
+                cursor: pointer;
+                padding: 10px;
+                text-align: center;
+                border: 2px solid #007bff;
+                background-color: #007bff;
+                color: #fff;
+                border-radius: 5px;
+                margin: 5px;
+            }
+
+            .form-check-label:hover {
+                background-color: #0056b3;
+                border-color: #0056b3;
+            }
+        </style>
+
+        <form id="quizForm" method="post" action="{% url 'quotes' %}" class="mt-3">
+            {% csrf_token %}
+            <input type="hidden" name="action" value="duration">
+
+            <div class="row text-center fw-bold">
+                <div class="col">
+                    <div class="form-check">
+                        <input id="radio1" type="radio" name="duration" value="30" class="duration-radio">
+                        <label for="radio1" class="form-check-label">
+                            <h2>Short</h2>
+                        </label>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-check">
+                        <input id="radio2" type="radio" name="duration" value="60" class="duration-radio">
+                        <label for="radio2" class="form-check-label">
+                            <h2>Medium</h2>
+                        </label>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-check">
+                        <input id="radio3" type="radio" name="duration" value="90" class="duration-radio">
+                        <label for="radio3" class="form-check-label">
+                            <h2>Long</h2>
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            // Bind click event to radio buttons
+            $('.duration-radio').on('click', function() {
+                // Trigger form submission
+                $('#quizForm').submit();
+            });
+        });
+    </script>
+{% endblock %}

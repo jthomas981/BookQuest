@@ -1,0 +1,28 @@
+{% extends 'base_layout.html' %}
+
+{% block content %}
+    <div class="container mt-4">
+        <h2 class="mb-4">Your Scores</h2>
+
+        <div class="table-responsive">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Score</th>
+                        <th>Duration</th>
+                        <th>Start Time</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for score, start_time, duration in sorted_score_tuples %}
+                        <tr>
+                            <td>{{ score }}</td>
+                            <td>{{ duration }} seconds</td>
+                            <td>{{ start_time }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock %}
