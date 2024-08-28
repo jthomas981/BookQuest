@@ -1,7 +1,7 @@
 from django.http import HttpResponse
 from django.shortcuts import render
 
-from ..tasks import reload_website
+from tasks import reload_website
 
 reload_website()
 
