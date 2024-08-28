@@ -8,7 +8,7 @@ pip install -r requirements.txt
 # Collect static files
 python manage.py collectstatic --no-input
 
-./manage.py schemamigration background_task --init
+python manage.py schemamigration background_task --init
 # Run database migrations
 python manage.py migrate 
 
