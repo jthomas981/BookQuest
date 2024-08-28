@@ -8,8 +8,9 @@ pip install -r requirements.txt
 # Collect static files
 python manage.py collectstatic --no-input
 
+./manage.py schemamigration background_task --init
 # Run database migrations
-python manage.py migrate --run-syncdb 
+python manage.py migrate 
 
 # Start the background task processor
 # Ensure that the background task processor runs in the background
