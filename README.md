@@ -31,7 +31,10 @@ python -m venv venv
 venv\Scripts\activate
 ```
 
-3. **Install dependencies using the provided script:**
+3. **Create the `.env` file:**
+In the root directory, create a `.env` file and add the necessary environment variables. See the example `.env.example` file for how the `.env` is supposed to look like.
+
+4. **Install dependencies using the provided script:**
 * For macOS/Linux:
 ```
 ./build.sh
